@@ -62,6 +62,10 @@ body {
 }
 /*ホバー
 ---------------*/
+.btn:hover {
+  cursor: pointer;
+}
+
 .btn:hover .btn__text {
   -webkit-animation-duration: 5s;
           animation-duration: 5s;

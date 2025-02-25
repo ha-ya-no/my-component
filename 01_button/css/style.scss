@@ -58,6 +58,10 @@ body {
 
 /*ホバー
 ---------------*/
+.btn:hover {
+    cursor: pointer;
+}
+
 .btn:hover .btn__text {
     animation-duration: 5s;
 }
