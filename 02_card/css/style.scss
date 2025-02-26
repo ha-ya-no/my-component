@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+$breakpoints: (
+    "mobile": "screen and (min-width: 390px)",
+    "desktop": "screen and (min-width: 700px)",
+    ) !default;
+
+/*mixin
+-------------------------*/
+@mixin m-query($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+body {
+    background-color: #f0f0f0;
+}
+
+.introduction {
+    max-width: 1200px;
+    margin: auto;
+    padding: 50px;
+
+    @include m-query(desktop) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr
+        );
+    gap: 20px;
+}
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 45px;
+    padding: 20px 15px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__vol {
+        position: relative;
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+
+        &::before {
+            content: "vol.";
+            font-size: 18px;
+            font-weight: lighter;
+            position: absolute;
+            top: -20px;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            border-bottom: 1px solid #000;
+        }
+    }
+
+    &__name {
+        padding-top: 8px;
+    }
+
+    &__pic {
+        width: 30%;
+
+        img {
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+    }
+
+    &__word {
+        margin-bottom: 10px;
+        padding: 10px 0;
+    }
+
+    &__image {
+        img {
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+    }
+
+    &__fav {
+        padding: 10px 0 20px;
+
+        &::before {
+            content: "好きな食べ物 : ";
+            font-size: 14px;
+        }
+    }
+
+    &__btn {
+        width: fit-content;
+        font-size: 24px;
+        margin-top: auto;
+        margin-left: auto;
+        position: relative;
+
+        a {
+            padding: 0 15px;
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            width: 0;
+            border-bottom: #000 solid 1px;
+            position: absolute;
+            top: -10px;
+            transition: width 0.3s ease;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+
+            &::before {
+                width: 100%;
+            }
+        }
+    }
+}
