@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+$color-light: #fff;
+$color-dark: #333;
+$shadow: rgba(0, 0, 0, .2);
+
+body {
+    background-color: #f4f4f4;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 240px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+
+    &--flipped {
+        transform: rotateY(180deg);
+    }
+
+    &__front,
+    &__back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px $shadow;
+        backface-visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    &__front {
+        background: $color-light;
+    }
+
+    &__detail {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__content {
+        align-items: center;
+    }
+
+    &__image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+    }
+
+    &__name {
+        margin: 10px 0 5px;
+        font-size: 18px;
+        color: $color-dark;
+    }
+
+    &__role {
+        font-size: 14px;
+        color: lighten($color-dark, 30%);
+    }
+
+    &__hint {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        font-size: 12px;
+        width: fit-content;
+        opacity: 0.8;
+        animation: hintBlink 1.5s infinite alternate;
+    }
+
+    &__back {
+        background: $color-dark;
+        color: $color-light;
+        transform: rotateY(180deg);
+    }
+
+    &__details-title {
+        margin-bottom: 20px;
+        border-bottom: 1px solid $color-light;
+        padding: 5px 10px;
+    }
+
+    &__details {
+        padding: 0;
+        list-style: none;
+
+        li {
+            font-size: 14px;
+            margin-bottom: 10px;
+
+            &:nth-child(2)::before {
+                content: "資格：";
+            }
+
+            &:nth-child(3)::before {
+                content: "好物：";
+            }
+        }
+    }
+}
+
+@keyframes hintBlink {
+    0% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
