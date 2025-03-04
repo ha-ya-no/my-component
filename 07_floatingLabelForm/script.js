@@ -46,22 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const togglePasswordButton = document.getElementById("toggle-password");
-            const passwordInput = document.getElementById("password");
-
-            togglePasswordButton.addEventListener("click", () => {
-                // パスワード表示・非表示の切り替え
-                if (passwordInput.type === "password") {
-                    passwordInput.type = "text";
-                    togglePasswordButton.textContent = "Hide"; // ボタンのテキストを変更
-                } else {
-                    passwordInput.type = "password";
-                    togglePasswordButton.textContent = "Show"; // ボタンのテキストを変更
-                }
-            });
-        });
-
         input.addEventListener("input", () => {
             if (input.value) {
                 gsap.to(label, {
