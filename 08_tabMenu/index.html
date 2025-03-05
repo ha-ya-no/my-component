@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab menu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/the-new-css-reset/css/reset.min.css">
+    <link rel="stylesheet" href="./css/style.min.css">
+</head>
+
+<body>
+    <div class="tabs">
+        <div class="tabs__menu">
+            <button class="tabs__button tabs__button--active" data-tab="1">Tab 1</button>
+            <button class="tabs__button" data-tab="2">Tab 2</button>
+            <button class="tabs__button" data-tab="3">Tab 3</button>
+        </div>
+        <div class="tabs__content">
+            <div class="tabs__panel tabs__panel--active" data-panel="1">Content 1</div>
+            <div class="tabs__panel" data-panel="2">Content 2</div>
+            <div class="tabs__panel" data-panel="3">Content 3</div>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tabs__button');
+        const panels = document.querySelectorAll('.tabs__panel');
+
+        tabs[0].classList.add('tabs__button--active');
+        panels[0].classList.add('tabs__panel--active');
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(tab => tab.classList.remove('tabs__button--active'));
+                panels.forEach(panel => panel.classList.remove('tabs__panel--active'));
+
+                tab.classList.add('tabs__button--active');
+                panels[index].classList.add('tabs__panel--active');
+            });
+        });
+    </script>
+</body>
+
+</html>
