@@ -1,0 +1,85 @@
+body {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+}
+.nav--open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.nav__content {
+  position: relative;
+  background: #222;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 250px;
+}
+.nav__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav__list li {
+  margin: 1rem 0;
+}
+.nav__list a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+.nav__list a:hover {
+  color: #ff69b4;
+}
+.nav__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.nav__close:hover {
+  color: #ff69b4;
+}
+
+.nav-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.nav-toggle:hover {
+  color: #ff69b4;
+}
+/*# sourceMappingURL=style.css.map */
