@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.card {
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease-in-out;
+}
+.card__image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.card__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+.card:hover .card__image img {
+  transform: scale(1.1);
+}
+.card__content {
+  padding: 15px;
+  background: #fff;
+}
+.card__content h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+.card__content p {
+  font-size: 14px;
+  color: #666;
+}
+/*# sourceMappingURL=style.css.map */
